@@ -13,6 +13,7 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with manta-crypto.  If not, see <http://www.gnu.org/licenses/>.
+#![cfg_attr(not(feature="std"), no_std)]
 
 mod aux;
 mod checksum;
@@ -22,6 +23,8 @@ mod param;
 mod serdes;
 
 pub use aux::*;
+pub use checksum::*;
 pub use constants::*;
-pub use constants::{COMMIT_PARAM, HASH_PARAM, RECLAIM_PK, TRANSFER_PK};
+pub use dh::*;
 pub use param::*;
+pub use serdes::*;
