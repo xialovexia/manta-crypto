@@ -65,7 +65,7 @@ blake2 = { version = "0.9.1", default-features = false }
 # harness = false
 
 [features]
-default = [ "std" ]
+default = [ ]
 runtime-benchmarks = [
 ]
 
