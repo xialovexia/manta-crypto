@@ -29,9 +29,9 @@ fn manta_dh() {
 	let receiver_pk_bytes = receiver_pk.to_bytes();
 	let receiver_sk_bytes = receiver_sk.to_bytes();
 	let value = 12345678;
-	let (sender_pk_bytes, cipher) = crate::manta_dh_enc(&receiver_pk_bytes, value, &mut rng);
+	let cipher: [u8; 48] = <MantaCrypto as Ecies>::encrypt(&receiver_pk_bytes, &value, &mut rng);
 	println!("enc success");
-	let rec_value = manta_dh_dec(&cipher, &sender_pk_bytes, &receiver_sk_bytes);
+	let rec_value = <MantaCrypto as Ecies>::decrypt(&receiver_sk_bytes, &cipher);
 	assert_eq!(value, rec_value);
 }
 

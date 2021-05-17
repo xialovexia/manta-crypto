@@ -18,7 +18,7 @@
 mod aux;
 mod checksum;
 mod constants;
-mod dh;
+mod ecies;
 mod param;
 mod serdes;
 
@@ -28,6 +28,8 @@ mod tests;
 pub use aux::*;
 pub use checksum::*;
 pub use constants::*;
-pub use dh::*;
+pub use ecies::*;
 pub use param::*;
 pub use serdes::*;
+
+pub struct MantaCrypto;
