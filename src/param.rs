@@ -16,13 +16,13 @@
 
 use ark_bls12_381::Bls12_381;
 use ark_crypto_primitives::{
-    commitment::pedersen::{constraints::CommGadget, Commitment, Window},
-    crh::{
-        pedersen::{constraints::CRHGadget, CRH},
-        FixedLengthCRH, FixedLengthCRHGadget,
-    },
-    merkle_tree::{Config, Digest, Path},
-    CommitmentScheme as ArkCommitmentScheme, MerkleTree, SNARK, *,
+	commitment::pedersen::{constraints::CommGadget, Commitment, Window},
+	crh::{
+		pedersen::{constraints::CRHGadget, CRH},
+		FixedLengthCRH, FixedLengthCRHGadget,
+	},
+	merkle_tree::{Config, Digest, Path},
+	CommitmentScheme as ArkCommitmentScheme, MerkleTree, SNARK, *,
 };
 use ark_ed_on_bls12_381::{constraints::EdwardsVar, EdwardsParameters, EdwardsProjective, Fq};
 use ark_groth16::Groth16;
@@ -48,8 +48,8 @@ const TREE_DEPTH: usize = 21;
 #[derive(Clone)]
 pub struct PedersenWindow;
 impl Window for PedersenWindow {
-    const WINDOW_SIZE: usize = PERDERSON_WINDOW_SIZE;
-    const NUM_WINDOWS: usize = PERDERSON_WINDOW_NUM;
+	const WINDOW_SIZE: usize = PERDERSON_WINDOW_SIZE;
+	const NUM_WINDOWS: usize = PERDERSON_WINDOW_NUM;
 }
 pub type Hash = CRH<EdwardsProjective, PedersenWindow>;
 #[allow(dead_code)]
@@ -63,8 +63,8 @@ pub type HashParam = <Hash as FixedLengthCRH>::Parameters;
 #[derive(Debug, Clone, Copy)]
 pub struct MerkleTreeParams;
 impl Config for MerkleTreeParams {
-    const HEIGHT: usize = TREE_DEPTH;
-    type H = Hash;
+	const HEIGHT: usize = TREE_DEPTH;
+	type H = Hash;
 }
 
 /// A merkle tree that is instantiated with Manta parameters.
@@ -115,9 +115,9 @@ pub type Groth16Proof = <Groth16<Bls12_381> as SNARK<Fq>>::Proof;
 //=======================
 pub type CommitmentSchemeVar = CommGadget<EdwardsProjective, EdwardsVar, PedersenWindow>;
 pub type CommitmentParamVar =
-    <CommitmentSchemeVar as CommitmentGadget<CommitmentScheme, Fq>>::ParametersVar;
+	<CommitmentSchemeVar as CommitmentGadget<CommitmentScheme, Fq>>::ParametersVar;
 pub type MantaCoinCommitmentOpenVar =
-    <CommitmentSchemeVar as CommitmentGadget<CommitmentScheme, Fq>>::RandomnessVar;
+	<CommitmentSchemeVar as CommitmentGadget<CommitmentScheme, Fq>>::RandomnessVar;
 pub type MantaCoinCommitmentOutputVar = AffineVar<EdwardsParameters, FpVar<Fq>>;
 
 //=======================
@@ -125,10 +125,10 @@ pub type MantaCoinCommitmentOutputVar = AffineVar<EdwardsParameters, FpVar<Fq>>;
 //=======================
 #[derive(Debug, Clone, Default, PartialEq)]
 pub struct VerificationKey {
-    pub data: &'static [u8],
+	pub data: &'static [u8],
 }
 
 #[derive(Debug, Clone, Default, PartialEq)]
 pub struct Parameter {
-    pub data: &'static [u8],
+	pub data: &'static [u8],
 }

@@ -11,11 +11,7 @@ readme = "README.md"
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]
 
-[build-dependencies]
-substrate-wasm-builder = { version = '4.0.0', default-features = false }
-
 [dependencies]
-# data-encoding = { version = "2.3.2", default-features = false, features = [ "alloc" ] }
 
 # Arkworks dependencies
 ark-ed-on-bls12-381 = { version = "0.2.0", default-features = false, features = [ "r1cs" ] }
@@ -27,8 +23,6 @@ ark-r1cs-std = { version = "0.2.0", default-features = false }
 ark-serialize = { version = "0.2.0", default-features = false, features = [ "derive" ] }
 
 # Additional cryptography dependencies
-rand_chacha = { version = "0.2", default-features = false }
-
 aes = { version = "0.7.0", default-features = false }
 x25519-dalek = { version = "1.1.0", default-features = false, features = [ "u64_backend" ] }
 generic-array = { version = "0.14.0", default-features = false }
@@ -36,6 +30,7 @@ blake2 = { version = "0.9.1", default-features = false }
 
 
 [dev-dependencies]
+rand_chacha = { version = "0.2", default-features = false }
 
 [features]
 default = [ "std" ]
