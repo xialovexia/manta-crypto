@@ -15,20 +15,22 @@
 // along with manta-crypto.  If not, see <http://www.gnu.org/licenses/>.
 #![cfg_attr(not(feature = "std"), no_std)]
 
-mod aux;
 mod checksum;
+mod commitment;
 mod constants;
 mod ecies;
+mod merkle_tree;
 mod param;
 mod serdes;
 
 #[cfg(test)]
 mod tests;
 
-pub use aux::*;
 pub use checksum::*;
+pub use commitment::*;
 pub use constants::*;
 pub use ecies::*;
+pub use merkle_tree::*;
 pub use param::*;
 pub use serdes::*;
 
